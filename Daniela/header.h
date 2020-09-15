@@ -43,9 +43,7 @@ typedef struct global_structure
 {
     char *num;
 	char *key_w;
-    char * name_file;
-	char *buffer;
-    FILE *monty_file;
+    char *buffer;
 } var_global;
 
 extern var_global items;

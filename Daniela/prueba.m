@@ -1,4 +1,5 @@
 push 2
 push 3
 push 100
-push
+push -1
+push                                9                

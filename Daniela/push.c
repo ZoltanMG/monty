@@ -20,7 +20,7 @@ void free_stack(stack_t **stack)
 		}
 	}
 	free(items.buffer);
-	fclose(items.monty_file);
+	//fclose(items.monty_file);
 }
 
 /**
