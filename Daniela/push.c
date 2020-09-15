@@ -6,12 +6,21 @@
  * Return: void
  */
 
-void free_stack(dlistint_t *stack)
+void free_stack(stack_t **stack)
 {
-	if (!stack)
-		return;
-	free_stack(stack->next);
-	free(stack);
+	stack_t *tmp = *stack;
+
+	if (*stack)
+	{
+		while (*stack)
+		{
+			*stack = (*stack)->next;
+			free(tmp);
+			tmp = *stack;
+		}
+	}
+	free(items.buffer);
+	fclose(items.monty_file);
 }
 
 /**
@@ -23,30 +32,45 @@ void free_stack(dlistint_t *stack)
 
 void push_stack(stack_t **stack, unsigned int line_number)
 {
-    stack_t *my_node = NULL;
+	stack_t *new;
 
-    my_node = malloc(sizeof(stack_t));
+	if (items.num == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+	if (*items.num != '0' && _is_digit(items.num) &&
+	items.num[0] != '-')
+	{
+		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		free_stack(stack);
+		free(new);
+		exit(EXIT_FAILURE);
+	}
+	new->n = atoi(items.num);
+	new->next = *stack;
+	new->prev = NULL;
+	if (*stack)
+		(*stack)->prev = new;
+	*stack = new;
+}
 
-    if (items.num == NULL || isdigit(items.num) != 1)
+int _is_digit(char *num)
+{
+    int count = 0;
+    
+    for (count = 0; num[count]; count++)
     {
-        dprintf(STDERR_FILENO, "L%u: usage: push integer", line_number);
-        free_stack(stack);
-        exit(EXIT_FAILURE);
+        if (isdigit(num[count]) == 0)
+            return (1);
     }
-    if (!my_node)
-    {
-        dprintf(STDERR_FILENO, "Error: malloc failed \n");
-        free_stack(items.stack);
-        free(items.buffer);
-        free(my_node);
-        exit(EXIT_FAILURE);
-    }
-
-    my_node->n = atoi(items.num);
-    my_node->next = *stack;
-    my_node->prev = NULL;
-
-    if (*stack != NULL)
-        (*stack)->prev = my_node;
-    *stack = my_node;
+    return (0);
 }
