@@ -1,6 +1,6 @@
 #include "header.h"
 
-var_global items = {NULL, NULL, NULL};
+var_global items = {NULL, NULL};
 
 int main(int argc, char *argv[])
 {
@@ -27,14 +27,13 @@ int main(int argc, char *argv[])
 	line_size = getline(&buffer, &size, fp);
 	while (line_size != -1)
 	{
-		items.buffer = buffer;
 	        tokenizacion(buffer);
 		get_operator(&stack, line_number);
 		line_number++;
 		line_size = getline(&buffer, &size, fp);
 	}
 
-	free_stack(stack);
+	free(buffer);
 	buffer = NULL;
 	fclose(fp);
 	return (0);

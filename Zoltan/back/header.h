@@ -43,13 +43,11 @@ typedef struct global_structure
 {
         char *num;
 	char *key_w;
-	char *buffer;
 } var_global;
 
 extern var_global items;
 
 void tokenizacion(char *str);
 void get_operator(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t *stack);
-void push_stack(stack_t **stack, unsigned int line_number);
+
 #endif
