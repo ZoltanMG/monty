@@ -1,41 +1,36 @@
 #include "header.h"
 
-var_global items = {NULL, NULL, NULL};
+var_global items = {NULL, NULL, NULL, NULL};
 
 int main(int argc, char *argv[])
 {
-	FILE *fp;
-	char *buffer = NULL;
 	size_t size;
 	ssize_t line_size;
 	unsigned int line_number = 1;
-	stack_t *stack;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
+		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
-	fp = fopen(argv[1], "r");
-	if (!fp)
+	items.monty_file = fopen(argv[1], "r");
+	if (items.monty_file == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	line_size = getline(&buffer, &size, fp);
+	line_size = getline(&items.buffer, &size, items.monty_file);
 	while (line_size != -1)
 	{
-		items.buffer = buffer;
-	        tokenizacion(buffer);
+		tokenizacion(items.buffer);
 		get_operator(&stack, line_number);
 		line_number++;
-		line_size = getline(&buffer, &size, fp);
+		line_size = getline(&items.buffer, &size, items.monty_file);
 	}
 
-	free_stack(stack);
-	buffer = NULL;
-	fclose(fp);
-	return (0);
+	free_stack(&stack);
+	exit(EXIT_SUCCESS);
 }
