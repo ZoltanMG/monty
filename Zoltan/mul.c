@@ -1,13 +1,13 @@
 #include "header.h"
 
 /**
- * add_stack - add the last two elements of the stack
+ * mul_stack - mul the last two elements of the stack
  * @stack: the stack
  * @line_number: line of my file
  * Return: void
  */
 
-void add_stack(stack_t **stack, unsigned int line_number)
+void mul_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node = *stack;
 	stack_t *aux = *stack;
@@ -20,15 +20,15 @@ void add_stack(stack_t **stack, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't mul, stack too short\n", line_number);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	node = *stack;
 	aux = aux->next;
 	/* sumamos los 2 primeros nodos*/
-	aux->n = node->n + node->next->n;
-	/*elimino un node que sumé*/
+	aux->n = node->next->n * node->n;
+	/*elimino un node que multiplique*/
 	free(node);
 	aux->prev = NULL;
 	*stack = aux;

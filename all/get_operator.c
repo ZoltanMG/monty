@@ -23,6 +23,8 @@ void get_operator(stack_t **stack, unsigned int line_number)
 	};
 	int count;
 
+	if (!items.key_w)
+		return;
 	for (count = 0; op_codes[count].opcode != NULL; count++)
 	{
 		if (strcmp(op_codes[count].opcode, items.key_w) == 0)

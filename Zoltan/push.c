@@ -63,6 +63,12 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	*stack = new;
 }
 
+/**
+ * _is_digit - validate if s atring contains a number or no
+ * @num: string to validate
+ * Return: a integer
+ */
+
 int _is_digit(char *num)
 {
 	int count = 0;

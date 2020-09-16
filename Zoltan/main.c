@@ -2,6 +2,13 @@
 
 var_global items = {NULL, NULL, NULL, NULL};
 
+/**
+ * main - Implement the push and pall opcodes.
+ * @argc: length of argv
+ * @argv: matrix with arguments.
+ *
+ * Return: always o
+ */
 int main(int argc, char *argv[])
 {
 	size_t size;
