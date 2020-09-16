@@ -10,7 +10,6 @@
 void pop_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *h = *stack;
-	stack_t *aux = *stack;
 
 	if (!(*stack))
 	{
@@ -20,8 +19,8 @@ void pop_stack(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = aux->next;
-	aux->prev = NULL;
+	*stack = h->next;
+	if (h->next != NULL)
+		h->next->prev = NULL;
 	free(h);
-	*stack = aux;
 }
