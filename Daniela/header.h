@@ -41,9 +41,10 @@ typedef struct instruction_s
 
 typedef struct global_structure
 {
-    char *num;
+	char *num;
 	char *key_w;
-    char *buffer;
+	char *buffer;
+	FILE *monty_file;
 } var_global;
 
 extern var_global items;
@@ -52,6 +53,11 @@ void tokenizacion(char *str);
 void get_operator(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 int _is_digit(char *num);
-void pall(stack_t **stack, unsigned int line_number);
+void pall_stack(stack_t **stack, unsigned int line_number);
 void push_stack(stack_t **stack, unsigned int line_number);
+void pint_stack(stack_t **stack, unsigned int line_number);
+void pop_stack(stack_t **stack, unsigned int line_number);
+void swap_stack(stack_t **stack, unsigned int line_number);
+void add_stack(stack_t **stack, unsigned int line_number);
+
 #endif

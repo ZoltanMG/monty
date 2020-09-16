@@ -20,7 +20,7 @@ void free_stack(stack_t **stack)
 		}
 	}
 	free(items.buffer);
-	//fclose(items.monty_file);
+	fclose(items.monty_file);
 }
 
 /**
@@ -65,12 +65,12 @@ void push_stack(stack_t **stack, unsigned int line_number)
 
 int _is_digit(char *num)
 {
-    int count = 0;
-    
-    for (count = 0; num[count]; count++)
-    {
-        if (isdigit(num[count]) == 0)
-            return (1);
-    }
-    return (0);
+	int count = 0;
+
+	for (count = 0; num[count]; count++)
+	{
+		if (isdigit(num[count]) == 0)
+			return (1);
+	}
+	return (0);
 }
