@@ -20,7 +20,7 @@ void mul_stack(stack_t **stack, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't mul, stack too short\n", line_number);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
