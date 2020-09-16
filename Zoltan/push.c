@@ -66,7 +66,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 int _is_digit(char *num)
 {
 	int count = 0;
-	
+
 	for (count = 0; num[count]; count++)
 	{
 		if (isdigit(num[count]) == 0)
