@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /**
  * mul_stack - mul the last two elements of the stack

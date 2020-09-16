@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /**
  * sub_stack - sub the last two elements of the stack

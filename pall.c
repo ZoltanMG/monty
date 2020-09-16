@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /**
  * pall_stack - prints all items of linked list.

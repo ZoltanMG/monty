@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /**
  * add_stack - add the last two elements of the stack

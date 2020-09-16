@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /**
  * swap_stack - changed fist node whit second node.
