@@ -5,6 +5,7 @@ void get_operator(stack_t **stack, unsigned int line_number)
 	instruction_t op_codes[] = {
 		{"push", push_stack},
 		{"pall", pall_stack},
+		{"pint", pint_stack},
 		{NULL, NULL}
 	};
 	int count;
