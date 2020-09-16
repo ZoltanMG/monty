@@ -9,6 +9,7 @@ void get_operator(stack_t **stack, unsigned int line_number)
 		{"pop", pop_stack},
 		{"swap", swap_stack},
         {"add", add_stack},
+        {"nop", nop_stack},
 		{NULL, NULL}
 	};
 	int count;
