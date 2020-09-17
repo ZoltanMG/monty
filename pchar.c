@@ -10,7 +10,7 @@ void pchar_stack(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*stack)->n < 0 || (*stack)->n > 227)
+	if ((*stack)->n < 32 || (*stack)->n > 226)
 	{
 		dprintf(STDERR_FILENO,
 			"L%d: can't pchar, value out of range\n", line_number);

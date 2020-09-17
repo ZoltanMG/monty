@@ -28,6 +28,7 @@ void rotl_stack(stack_t **stack, unsigned int line_number)
 	else
 	{
 		*stack = h->next;
+		h->next->prev = NULL;
 		aux->next = h;
 		h->prev = aux;
 		h->next = NULL;
