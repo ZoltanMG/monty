@@ -19,6 +19,7 @@ void get_operator(stack_t **stack, unsigned int line_number)
 		{"div", div_stack},
 		{"mul", mul_stack},
 		{"mod", mod_stack},
+		{"pstr", pstr_stack},
 		{"pchar", pchar_stack},
 		{"rotl", rotl_stack},
 		{NULL, NULL}
@@ -26,6 +27,9 @@ void get_operator(stack_t **stack, unsigned int line_number)
 	int count;
 
 	if (!items.key_w)
+		return;
+	/* uso teims.key_w porque este es el buffer tokenizado*/
+	if (items.key_w[0] == '#')
 		return;
 	for (count = 0; op_codes[count].opcode != NULL; count++)
 	{
