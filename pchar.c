@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * pchar_stack - The opcode print char of first node.
+ * @stack: doubly linked list.
+ * @line_number: line of file.
+ */
+
 void pchar_stack(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)

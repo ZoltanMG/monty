@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * rotl_stack - The opcode rotl rotates the stack to the top.
+ * @stack: doubly linked list.
+ * @line_number: line of file.
+ */
 void rotl_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *h = *stack;
