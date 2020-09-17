@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * swap_stack - changed fist node whit second node.
  * @stack: doubly linked list.
@@ -16,9 +15,11 @@ void swap_stack(stack_t **stack, unsigned int line_number)
 		count++;
 		h = h->next;
 	}
-
-	h = *stack;
-	aux = aux->next;
+	if (count > 0)
+	{
+		h = *stack;
+		aux = aux->next;
+	}
 	if (count < 2)
 	{
 		dprintf(STDERR_FILENO,
