@@ -22,6 +22,7 @@ void get_operator(stack_t **stack, unsigned int line_number)
 		{"pstr", pstr_stack},
 		{"pchar", pchar_stack},
 		{"rotl", rotl_stack},
+		{"rotr", rotr_stack},
 		{NULL, NULL}
 	};
 	int count;
